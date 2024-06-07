@@ -7,8 +7,7 @@ function App() {
       <div>
         <BookSearch />
       </div>
-        
-  )
+      )
 }
 
 export default App
