@@ -1,5 +1,3 @@
-// BookSearchBar.jsx
-import React from 'react';
 import { TextField } from '@mui/material';
 
 const BookSearchBar = ({ searchTerm, setSearchTerm }) => {

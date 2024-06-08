@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, Grid, Box } from '@mui/material';
 
 const ReadingList = ({ readingList, removeFromReadingList }) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Grid, Typography, Box } from '@mui/material';
 import { useQuery, gql } from '@apollo/client';
 import BookSearchBar from './BookSearchBar';
@@ -17,9 +17,9 @@ query Books {
 
 const BookSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [readingList, setReadingList] = useState([]);
     const { data } = useQuery(BOOKS_QUERY);
 
-    const [readingList, setReadingList] = useState([]);
 
     const addToReadingList = (book) => {
         if (!readingList.find(b => b.title === book.title)) {
@@ -39,7 +39,7 @@ const BookSearch = () => {
                     {/* Wrapper with relative positioning */}
                     <Box position="relative" width="50%" zIndex="tooltip">
                         <BookSearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                        {/* Search results with absolute positioning */}
+
                         {searchTerm && (
                             <Box position="absolute" width="100%" zIndex="modal" sx={{ mt: 2, overflow: 'auto', maxHeight: 300, bgcolor: '#CFFAFA' }}>
                                 <SearchResults searchTerm={searchTerm} books={data?.books || []} addToReadingList={addToReadingList} />
